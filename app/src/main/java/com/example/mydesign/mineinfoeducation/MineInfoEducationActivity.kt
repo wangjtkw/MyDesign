@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.example.mydesign.R
-import com.example.mydesign.StatusBarUtils
+import com.example.mydesign.utils.StatusBarUtils
 import com.example.mydesign.bean.EducationExperience
 import com.example.mydesign.dialog.MineInfoSingleDataDialogUtil
 

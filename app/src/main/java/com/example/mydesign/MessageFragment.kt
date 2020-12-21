@@ -1,13 +1,8 @@
 package com.example.mydesign
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.DatePicker
 import com.example.mydesign.base.BaseFragment
-import com.example.mydesign.myview.PickerView
+import com.example.mydesign.utils.Utils
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

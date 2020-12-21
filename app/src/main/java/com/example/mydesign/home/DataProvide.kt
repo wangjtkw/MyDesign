@@ -6,7 +6,7 @@ object DataProvide {
     private val img = "http://image.ngchina.com.cn/2020/1209/20201209020555621.jpg"
 
     //https://pic2.zhimg.com/v2-a8dc5da0c00c796f0ac8b4c950e47e0b.jpg?source=8673f162
-    fun provideHomePageItem(callback:(List<HomePageItemBean>)->Unit)  {
+    fun provideHomePageItem(callback: (List<HomePageItemBean>) -> Unit) {
         val list = ArrayList<HomePageItemBean>()
         val tags = arrayOf("在家做", "日结", "时薪")
         for (i in 0..20) {
@@ -16,6 +16,5 @@ object DataProvide {
         }
         callback(list)
     }
-
 
 }

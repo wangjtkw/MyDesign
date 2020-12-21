@@ -1,6 +1,5 @@
-package com.example.mydesign
+package com.example.mydesign.utils
 
-import android.R
 import android.content.res.Resources.NotFoundException
 import android.graphics.drawable.ColorDrawable
 import android.widget.DatePicker

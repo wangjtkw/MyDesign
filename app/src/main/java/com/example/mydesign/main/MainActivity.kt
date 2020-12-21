@@ -6,11 +6,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.mydesign.*
+import com.example.mydesign.MessageFragment
+import com.example.mydesign.R
 import com.example.mydesign.home.HomeFragment
 import com.example.mydesign.mine.MineFragment
 import com.example.mydesign.publicclass.TabPagerBinding
 import com.example.mydesign.publicclass.ViewPagerAdapter
+import com.example.mydesign.utils.StatusBarUtils
 import com.google.android.material.tabs.TabLayout
 
 

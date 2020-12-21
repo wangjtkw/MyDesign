@@ -5,7 +5,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -17,15 +16,21 @@ class ChooseHeadImageDialogUtil {
     private lateinit var chooseHeadInflater: View
     private lateinit var chooseHeadLineView: View
     private lateinit var chooseHeadFromAlbum: TextView
+    private lateinit var chooseHeadFromCamera: TextView
     private lateinit var chooseHeadCancel: TextView
 
-    fun initChooseHeadImageDialog(context: Context, callback: () -> Unit) {
+    fun initChooseHeadImageDialog(
+        context: Context,
+        albumCallback: () -> Unit,
+        cameraCallback: () -> Unit
+    ) {
         chooseHeadImageDialog = Dialog(context, R.style.ChooseHeadImageDialog)
         chooseHeadInflater =
             LayoutInflater.from(context).inflate(R.layout.dialog_choose_head_image, null)
         chooseHeadFromAlbum = chooseHeadInflater.findViewById(R.id.dialog_choose_head_from_album)
         chooseHeadLineView = chooseHeadInflater.findViewById(R.id.dialog_choose_head_line_view)
         chooseHeadCancel = chooseHeadInflater.findViewById(R.id.dialog_choose_head_cancel)
+        chooseHeadFromCamera = chooseHeadInflater.findViewById(R.id.dialog_choose_head_from_camera)
         chooseHeadLineView.background = ColorDrawable(Color.parseColor("#1A8F8F8F"))
         chooseHeadImageDialog.setContentView(chooseHeadInflater)
         val dialogWindow = chooseHeadImageDialog.window
@@ -38,8 +43,16 @@ class ChooseHeadImageDialogUtil {
         dialogWindow?.setGravity(Gravity.BOTTOM)
         dialogWindow?.attributes = layoutParams
         chooseHeadImageDialog.show()
-        initChooseHeadFromAlbum(callback)
+        initChooseHeadFromAlbum(albumCallback)
+        initChooseHeadFromCamera(cameraCallback)
         initChooseHeadCancel()
+    }
+
+    private fun initChooseHeadFromCamera(callback: () -> Unit) {
+        chooseHeadFromCamera.setOnClickListener {
+            callback()
+            chooseHeadImageDialog.dismiss()
+        }
     }
 
     private fun initChooseHeadFromAlbum(callback: () -> Unit) {

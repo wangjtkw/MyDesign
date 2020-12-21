@@ -1,22 +1,23 @@
 package com.example.mydesign.mineinfo
 
+import android.Manifest
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.example.mydesign.R
+import com.example.mydesign.base.PermissionActivity
+import com.example.mydesign.bean.EducationExperience
+import com.example.mydesign.dialog.ChooseDateDialogUtil
+import com.example.mydesign.dialog.ChooseHeadImageDialogUtil
+import com.example.mydesign.dialog.MineInfoSingleDataDialogUtil
 import com.example.mydesign.mineinfoeducation.MineInfoEducationActivity
 import com.example.mydesign.mineinfoeducation.MineInfoEducationActivity.Companion.EDUCATION_EXPERIENCE
 import com.example.mydesign.mineinfoeducation.MineInfoEducationActivity.Companion.EDUCATION_EXPERIENCE_REQUEST_CODE
-import com.example.mydesign.dialog.ChooseHeadImageDialogUtil
-import com.example.mydesign.R
-import com.example.mydesign.StatusBarUtils
-import com.example.mydesign.bean.EducationExperience
-import com.example.mydesign.dialog.ChooseDateDialogUtil
-import com.example.mydesign.dialog.MineInfoSingleDataDialogUtil
+import com.example.mydesign.utils.StatusBarUtils
 
-class MineInfoActivity : AppCompatActivity() {
+class MineInfoActivity : PermissionActivity() {
     private lateinit var backLayout: FrameLayout
     private lateinit var titleTextView: TextView
     private lateinit var saveLayout: FrameLayout
@@ -45,6 +46,8 @@ class MineInfoActivity : AppCompatActivity() {
     private lateinit var sexSelectCallback: (Int) -> Unit
     private lateinit var birthdaySelectCallBack: (String) -> Unit
     private lateinit var roleSelectCallback: (Int) -> Unit
+    private lateinit var chooseHeadFromAlbumCallback: () -> Unit
+    private lateinit var chooseHeadFromCameraCallback: () -> Unit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,6 +90,13 @@ class MineInfoActivity : AppCompatActivity() {
     }
 
     private fun initListener() {
+        chooseHeadFromAlbumCallback = {
+            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+        chooseHeadFromCameraCallback = {
+            checkPermission(Manifest.permission.CAMERA)
+        }
+
         sexSelectCallback = { i ->
             sexTextView.text = sexDataList[i]
             sexTextView.setTextColor(Color.parseColor("#8A000000"))
@@ -115,7 +125,8 @@ class MineInfoActivity : AppCompatActivity() {
         headSelectLayout.setOnClickListener {
             ChooseHeadImageDialogUtil().initChooseHeadImageDialog(
                 this,
-                {})
+                chooseHeadFromAlbumCallback, chooseHeadFromCameraCallback
+            )
         }
         sexSelectLayout.setOnClickListener {
             MineInfoSingleDataDialogUtil().init(this, sexDataList, sexSelectCallback)
@@ -144,7 +155,6 @@ class MineInfoActivity : AppCompatActivity() {
             educationMajorTextView.text = it?.major
         }
     }
-
 
 
     private fun <T : View> f(id: Int): T {

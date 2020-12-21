@@ -1,4 +1,4 @@
-package com.example.mydesign
+package com.example.mydesign.utils
 
 import android.app.Activity
 import android.os.Build

@@ -3,7 +3,6 @@ package com.example.mydesign.dialog
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Point
-import android.os.Build
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -11,10 +10,8 @@ import android.view.View
 import android.widget.DatePicker
 import android.widget.FrameLayout
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import com.example.mydesign.R
-import com.example.mydesign.Utils
-import com.example.mydesign.myview.PickerView
+import com.example.mydesign.utils.Utils
 
 class ChooseDateDialogUtil {
     private val TAG = "ChooseDateDialogUtil"
