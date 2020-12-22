@@ -4,20 +4,23 @@ import android.Manifest
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.example.mydesign.R
+import com.example.mydesign.album.AlbumActivity
+import com.example.mydesign.album.AlbumBean
 import com.example.mydesign.base.PermissionActivity
 import com.example.mydesign.bean.EducationExperience
 import com.example.mydesign.dialog.ChooseDateDialogUtil
 import com.example.mydesign.dialog.ChooseHeadImageDialogUtil
 import com.example.mydesign.dialog.MineInfoSingleDataDialogUtil
 import com.example.mydesign.mineinfoeducation.MineInfoEducationActivity
-import com.example.mydesign.mineinfoeducation.MineInfoEducationActivity.Companion.EDUCATION_EXPERIENCE
-import com.example.mydesign.mineinfoeducation.MineInfoEducationActivity.Companion.EDUCATION_EXPERIENCE_REQUEST_CODE
 import com.example.mydesign.utils.StatusBarUtils
 
 class MineInfoActivity : PermissionActivity() {
+    private val TAG = "MineInfoActivity"
+
     private lateinit var backLayout: FrameLayout
     private lateinit var titleTextView: TextView
     private lateinit var saveLayout: FrameLayout
@@ -144,6 +147,10 @@ class MineInfoActivity : PermissionActivity() {
         if (requestCode == EDUCATION_EXPERIENCE_REQUEST_CODE && resultCode == EDUCATION_EXPERIENCE_REQUEST_CODE && data != null) {
             getMineInfoEducationActivityResult(data)
         }
+        if (requestCode == ALBUM_ACTIVITY_REQUEST_CODE && resultCode == ALBUM_ACTIVITY_REQUEST_CODE && data != null) {
+            val result = data.getParcelableExtra<AlbumBean>(ALBUM_BEAN)
+            Log.d(TAG, result.toString())
+        }
     }
 
     private fun getMineInfoEducationActivityResult(data: Intent) {
@@ -157,9 +164,30 @@ class MineInfoActivity : PermissionActivity() {
     }
 
 
+    override fun doOnGetPermission(permission: String) {
+        super.doOnGetPermission(permission)
+        when (permission) {
+            Manifest.permission.READ_EXTERNAL_STORAGE -> {
+                val intent = Intent(this, AlbumActivity::class.java)
+                startActivityForResult(intent, ALBUM_ACTIVITY_REQUEST_CODE)
+            }
+            Manifest.permission.CAMERA -> {
+            }
+        }
+    }
+
     private fun <T : View> f(id: Int): T {
         return findViewById(id)
     }
 
 
+    companion object {
+        // 教育经历界面
+        const val EDUCATION_EXPERIENCE = "educationExperience"
+        const val EDUCATION_EXPERIENCE_REQUEST_CODE = 0x000001
+
+        //相册界面
+        const val ALBUM_BEAN = "album_bean"
+        const val ALBUM_ACTIVITY_REQUEST_CODE = 0x000002
+    }
 }

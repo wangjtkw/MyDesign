@@ -2,16 +2,18 @@ package com.example.mydesign.mineinfoeducation
 
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mydesign.R
-import com.example.mydesign.utils.StatusBarUtils
 import com.example.mydesign.bean.EducationExperience
 import com.example.mydesign.dialog.MineInfoSingleDataDialogUtil
+import com.example.mydesign.mineinfo.MineInfoActivity.Companion.EDUCATION_EXPERIENCE
+import com.example.mydesign.mineinfo.MineInfoActivity.Companion.EDUCATION_EXPERIENCE_REQUEST_CODE
+import com.example.mydesign.utils.StatusBarUtils
 
 class MineInfoEducationActivity : AppCompatActivity() {
     private lateinit var backLayout: FrameLayout
@@ -90,10 +92,5 @@ class MineInfoEducationActivity : AppCompatActivity() {
 
     private fun <T : View> f(id: Int): T {
         return findViewById(id)
-    }
-
-    companion object {
-        const val EDUCATION_EXPERIENCE = "educationExperience"
-        const val EDUCATION_EXPERIENCE_REQUEST_CODE = 0x000001
     }
 }

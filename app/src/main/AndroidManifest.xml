@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature android:name="android.hardware.camera" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".MineInfoSelfCognitionActivity"></activity>
+        <activity android:name=".album.AlbumActivity"></activity>
+        <activity android:name=".MineInfoSelfCognitionActivity" />
         <activity android:name=".mineinfoeducation.MineInfoEducationActivity" />
         <activity android:name=".mineinfo.MineInfoActivity" />
         <activity android:name=".main.MainActivity">

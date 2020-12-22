@@ -31,15 +31,17 @@ abstract class PermissionActivity : AppCompatActivity() {
 
     protected fun checkPermission(permission: String) {
         val i = ContextCompat.checkSelfPermission(this, permission)
-        if (i != PackageManager.PERMISSION_GRANTED
-        ) {
+        if (i != PackageManager.PERMISSION_GRANTED) {
             getPermission(permission)
         } else {
-            doOnGetPermission()
+            doOnGetPermission(permission)
         }
     }
 
-    open fun doOnGetPermission() {}
+    open fun doOnGetPermission(permission: String) {
+
+
+    }
 
     private fun getPermission(permission: String) {
         currentPermission = permission
@@ -88,8 +90,9 @@ abstract class PermissionActivity : AppCompatActivity() {
                     currentPermission = ""
                 }
             } else {
+                doOnGetPermission(currentPermission)
                 currentPermission = ""
-                doOnGetPermission()
+
             }
         }
     }
@@ -105,8 +108,9 @@ abstract class PermissionActivity : AppCompatActivity() {
                     if (dialog != null && dialog!!.isShowing) {
                         dialog!!.dismiss()
                     }
+                    doOnGetPermission(currentPermission)
                     currentPermission = ""
-                    doOnGetPermission()
+
                 }
             }
         }
