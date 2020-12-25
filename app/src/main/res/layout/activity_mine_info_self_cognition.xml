@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_background"
     android:orientation="vertical"
-    tools:context=".MineInfoSelfCognitionActivity">
+    tools:context=".selfcognition.MineInfoSelfCognitionActivity">
 
     <!--    顶部区域-->
     <FrameLayout
@@ -15,7 +15,7 @@
         android:background="@color/white">
 
         <FrameLayout
-            android:id="@+id/activity_mine_info_education_back_layout"
+            android:id="@+id/mine_info_self_cognition_back_layout"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"

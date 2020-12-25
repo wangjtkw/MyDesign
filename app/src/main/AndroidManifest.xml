@@ -17,8 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".album.AlbumActivity"></activity>
-        <activity android:name=".MineInfoSelfCognitionActivity" />
+        <activity android:name=".curriculumvitae.MineInfoCurriculumVitaeActivity"></activity>
+        <activity android:name=".selfcognition.SelfDescriptionActivity" />
+        <activity android:name=".album.AlbumActivity" />
+        <activity android:name=".selfcognition.MineInfoSelfCognitionActivity" />
         <activity android:name=".mineinfoeducation.MineInfoEducationActivity" />
         <activity android:name=".mineinfo.MineInfoActivity" />
         <activity android:name=".main.MainActivity">

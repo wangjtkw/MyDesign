@@ -16,8 +16,12 @@ import com.example.mydesign.dialog.ChooseDateDialogUtil
 import com.example.mydesign.dialog.ChooseHeadImageDialogUtil
 import com.example.mydesign.dialog.MineInfoSingleDataDialogUtil
 import com.example.mydesign.mineinfoeducation.MineInfoEducationActivity
+import com.example.mydesign.selfcognition.MineInfoSelfCognitionActivity
 import com.example.mydesign.utils.StatusBarUtils
 
+/**
+ * 我的信息
+ */
 class MineInfoActivity : PermissionActivity() {
     private val TAG = "MineInfoActivity"
 
@@ -119,6 +123,10 @@ class MineInfoActivity : PermissionActivity() {
                 MineInfoDataProvider().provide().educationExperience
             )
             startActivityForResult(intent, EDUCATION_EXPERIENCE_REQUEST_CODE)
+        }
+        nextStepButton.setOnClickListener {
+            val intent = Intent(this, MineInfoSelfCognitionActivity::class.java)
+            startActivity(intent)
         }
 
     }

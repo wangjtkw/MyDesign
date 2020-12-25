@@ -15,6 +15,9 @@ import com.example.mydesign.mineinfo.MineInfoActivity.Companion.EDUCATION_EXPERI
 import com.example.mydesign.mineinfo.MineInfoActivity.Companion.EDUCATION_EXPERIENCE_REQUEST_CODE
 import com.example.mydesign.utils.StatusBarUtils
 
+/**
+ * 教育经历
+ */
 class MineInfoEducationActivity : AppCompatActivity() {
     private lateinit var backLayout: FrameLayout
     private lateinit var saveLayout: FrameLayout
