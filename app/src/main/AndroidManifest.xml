@@ -17,7 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".curriculumvitae.MineInfoCurriculumVitaeActivity"></activity>
+        <activity android:name=".curriculumvitae.InternshipExperienceShowActivity"></activity>
+        <activity android:name=".curriculumvitae.SchoolExperienceShowActivity" />
+        <activity android:name=".curriculumvitae.SchoolExperienceFillActivity" />
+        <activity android:name=".curriculumvitae.SkillAndCertificateActivity" />
+        <activity android:name=".curriculumvitae.EmileActivity" />
+        <activity android:name=".curriculumvitae.MineInfoCurriculumVitaeActivity" />
         <activity android:name=".selfcognition.SelfDescriptionActivity" />
         <activity android:name=".album.AlbumActivity" />
         <activity android:name=".selfcognition.MineInfoSelfCognitionActivity" />

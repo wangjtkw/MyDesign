@@ -222,7 +222,7 @@
             </FrameLayout>
 
             <Button
-                android:id="@+id/activity_curriculum_vitae_finish_button"
+                android:id="@+id/activity_curriculum_vitae_internship_experience_finish_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
