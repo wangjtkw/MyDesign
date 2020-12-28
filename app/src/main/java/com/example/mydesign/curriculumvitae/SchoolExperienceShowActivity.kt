@@ -1,5 +1,6 @@
 package com.example.mydesign.curriculumvitae
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -7,6 +8,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mydesign.R
+import com.example.mydesign.constants.SCHOOL_SHOW_TO_SCHOOL_FILL_REQUEST_CODE
 import com.example.mydesign.utils.StatusBarUtils
 
 class SchoolExperienceShowActivity : AppCompatActivity() {
@@ -33,7 +35,10 @@ class SchoolExperienceShowActivity : AppCompatActivity() {
         backLayout.setOnClickListener {
             finish()
         }
-
+        addItemLayout.setOnClickListener {
+            val intent = Intent(this, SchoolExperienceFillActivity::class.java)
+            startActivityForResult(intent, SCHOOL_SHOW_TO_SCHOOL_FILL_REQUEST_CODE)
+        }
     }
 
     private fun <T : View> f(id: Int): T {

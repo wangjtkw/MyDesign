@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".curriculumvitae.InternshipExperienceShowActivity"></activity>
+        <activity android:name=".curriculumvitae.InternshipExperienceFillActivity"></activity>
+        <activity android:name=".curriculumvitae.InternshipExperienceShowActivity" />
         <activity android:name=".curriculumvitae.SchoolExperienceShowActivity" />
         <activity android:name=".curriculumvitae.SchoolExperienceFillActivity" />
         <activity android:name=".curriculumvitae.SkillAndCertificateActivity" />

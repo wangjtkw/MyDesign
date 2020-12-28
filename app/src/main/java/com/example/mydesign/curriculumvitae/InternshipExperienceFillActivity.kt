@@ -11,14 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mydesign.R
 import com.example.mydesign.utils.StatusBarUtils
 
-/**
- * 校园经历填写
- */
-class SchoolExperienceFillActivity : AppCompatActivity() {
+class InternshipExperienceFillActivity : AppCompatActivity() {
     private lateinit var backLayout: FrameLayout
     private lateinit var saveLayout: FrameLayout
-    private lateinit var organizationActivityEditText: EditText
-    private lateinit var positionPrizeEditText: EditText
+    private lateinit var corporateNameEditText: EditText
+    private lateinit var positionNameEditText: EditText
     private lateinit var startTimeTextView: TextView
     private lateinit var endTimeTextView: TextView
     private lateinit var describeEditText: EditText
@@ -26,24 +23,24 @@ class SchoolExperienceFillActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         StatusBarUtils.setLightBar(this, Color.TRANSPARENT)
-        setContentView(R.layout.activity_school_experience_fill)
+        setContentView(R.layout.activity_internship_experience_fill)
         init()
         initListener()
     }
 
     private fun init() {
-        backLayout = f(R.id.activity_curriculum_vitae_school_experience_fill_back_layout)
-        saveLayout = f(R.id.activity_curriculum_vitae_school_experience_fill_save_layout)
-        organizationActivityEditText =
-            f(R.id.activity_curriculum_vitae_school_experience_fill_organization_activity_edit_text)
-        positionPrizeEditText =
-            f(R.id.activity_curriculum_vitae_school_experience_fill_position_prize_edit_text)
+        backLayout = f(R.id.activity_curriculum_vitae_internship_experience_fill_back_layout)
+        saveLayout = f(R.id.activity_curriculum_vitae_internship_experience_fill_save_layout)
+        corporateNameEditText =
+            f(R.id.activity_curriculum_vitae_internship_experience_fill_corporate_name_edit_text)
+        positionNameEditText =
+            f(R.id.activity_curriculum_vitae_internship_experience_fill_position_name_edit_text)
         startTimeTextView =
-            f(R.id.activity_curriculum_vitae_school_experience_fill_start_time_text_view)
+            f(R.id.activity_curriculum_vitae_internship_experience_fill_start_time_text_view)
         endTimeTextView =
-            f(R.id.activity_curriculum_vitae_school_experience_fill_end_time_text_view)
+            f(R.id.activity_curriculum_vitae_internship_experience_fill_end_time_text_view)
         describeEditText =
-            f(R.id.activity_curriculum_vitae_school_experience_fill_describe_edit_text)
+            f(R.id.activity_curriculum_vitae_internship_experience_fill_describe_edit_text)
     }
 
     private fun initListener() {
@@ -56,6 +53,7 @@ class SchoolExperienceFillActivity : AppCompatActivity() {
             finish()
         }
     }
+
 
     private fun <T : View> f(id: Int): T {
         return findViewById(id)

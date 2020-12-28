@@ -10,7 +10,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mydesign.R
 import com.example.mydesign.constants.VITAE_EMILE_REQUEST_CODE
-import com.example.mydesign.constants.VITAE_SCHOOL_REQUEST_CODE
+import com.example.mydesign.constants.VITAE_INTERNSHIP_SHOW_REQUEST_CODE
+import com.example.mydesign.constants.VITAE_SCHOOL_SHOW_REQUEST_CODE
 import com.example.mydesign.constants.VITAE_SKILL_REQUEST_CODE
 import com.example.mydesign.utils.StatusBarUtils
 
@@ -67,10 +68,11 @@ class MineInfoCurriculumVitaeActivity : AppCompatActivity() {
         }
         schoolExperienceLayout.setOnClickListener {
             val intent = Intent(this, SchoolExperienceShowActivity::class.java)
-            startActivityForResult(intent, VITAE_SCHOOL_REQUEST_CODE)
+            startActivityForResult(intent, VITAE_SCHOOL_SHOW_REQUEST_CODE)
         }
         internshipExperienceLayout.setOnClickListener {
-
+            val intent = Intent(this, InternshipExperienceShowActivity::class.java)
+            startActivityForResult(intent, VITAE_INTERNSHIP_SHOW_REQUEST_CODE)
         }
 
     }
