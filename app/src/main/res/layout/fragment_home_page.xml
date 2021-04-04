@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F3F3F3"
     android:orientation="vertical"
-    tools:context=".home.HomePageFragment">
+    tools:context=".ui.home.HomePageFragment">
 
     <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
     <!--        android:id="@+id/fragment_home_page_constraintLayout"-->

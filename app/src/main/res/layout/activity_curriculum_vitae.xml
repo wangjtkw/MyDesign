@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_background"
     android:orientation="vertical"
-    tools:context=".curriculumvitae.MineInfoCurriculumVitaeActivity">
+    tools:context=".ui.curriculumvitae.MineInfoCurriculumVitaeActivity">
 
     <!--标题-->
     <FrameLayout

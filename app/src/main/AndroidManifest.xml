@@ -5,11 +5,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,25 +19,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".curriculumvitae.InternshipExperienceFillActivity"></activity>
-        <activity android:name=".curriculumvitae.InternshipExperienceShowActivity" />
-        <activity android:name=".curriculumvitae.SchoolExperienceShowActivity" />
-        <activity android:name=".curriculumvitae.SchoolExperienceFillActivity" />
-        <activity android:name=".curriculumvitae.SkillAndCertificateActivity" />
-        <activity android:name=".curriculumvitae.EmileActivity" />
-        <activity android:name=".curriculumvitae.MineInfoCurriculumVitaeActivity" />
-        <activity android:name=".selfcognition.SelfDescriptionActivity" />
-        <activity android:name=".album.AlbumActivity" />
-        <activity android:name=".selfcognition.MineInfoSelfCognitionActivity" />
-        <activity android:name=".mineinfoeducation.MineInfoEducationActivity" />
-        <activity android:name=".mineinfo.MineInfoActivity" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name="com.example.mydesign.ui.curriculumvitae.InternshipExperienceFillActivity" />
+        <activity android:name="com.example.mydesign.ui.curriculumvitae.InternshipExperienceShowActivity" />
+        <activity android:name="com.example.mydesign.ui.curriculumvitae.SchoolExperienceShowActivity" />
+        <activity android:name="com.example.mydesign.ui.curriculumvitae.SchoolExperienceFillActivity" />
+        <activity android:name="com.example.mydesign.ui.curriculumvitae.SkillAndCertificateActivity" />
+        <activity android:name="com.example.mydesign.ui.curriculumvitae.EmileActivity" />
+        <activity android:name="com.example.mydesign.ui.curriculumvitae.MineInfoCurriculumVitaeActivity" />
+        <activity android:name="com.example.mydesign.ui.selfcognition.SelfDescriptionActivity" />
+        <activity android:name="com.example.mydesign.ui.album.AlbumActivity" />
+        <activity android:name="com.example.mydesign.ui.selfcognition.MineInfoSelfCognitionActivity" />
+        <activity android:name="com.example.mydesign.ui.mineinfoeducation.MineInfoEducationActivity" />
+        <activity android:name="com.example.mydesign.ui.mineinfo.MineInfoActivity" />
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.login.RegisterActivity" />
+        <activity android:name="com.example.mydesign.ui.main.MainActivity" />
+
+
     </application>
 
 </manifest>

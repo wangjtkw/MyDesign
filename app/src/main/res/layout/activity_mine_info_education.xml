@@ -1,230 +1,238 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/grey_background"
-    android:orientation="vertical"
-    tools:context=".mineinfoeducation.MineInfoEducationActivity">
+<layout>
 
-    <!--头部-->
-    <FrameLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:background="@color/grey_background"
+        android:orientation="vertical"
+        tools:context=".ui.mineinfoeducation.MineInfoEducationActivity">
 
+        <!--头部-->
         <FrameLayout
-            android:id="@+id/activity_mine_info_education_back_layout"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp">
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_back" />
-        </FrameLayout>
+            <FrameLayout
+                android:id="@+id/activity_mine_info_education_back_layout"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="教育经历"
-            android:textColor="@color/black_normal_color" />
-
-        <FrameLayout
-            android:id="@+id/activity_mine_info_education_save_layout"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="保存" />
-
-        </FrameLayout>
-    </FrameLayout>
-
-    <!--信息选择-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@color/white"
-        android:orientation="vertical">
-
-        <!--学历-->
-        <FrameLayout
-            android:id="@+id/activity_mine_info_education_education_select_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="学历"
-                    android:textColor="@color/black_normal_color" />
-
-                <TextView
-                    android:id="@+id/activity_mine_info_education_education_select_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginLeft="45dp"
-                    android:text="请选择学历"
-                    android:textColor="@color/black_hint_disable_color" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:src="@drawable/ic_enter_small" />
-
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/black_line_color" />
-
-        <!--学校-->
-        <FrameLayout
-            android:id="@+id/activity_mine_info_education_school_select_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="学校"
-                    android:textColor="@color/black_normal_color" />
-
-                <TextView
-                    android:id="@+id/activity_mine_info_education_school_select_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginLeft="45dp"
-                    android:text="请选择学校"
-                    android:textColor="@color/black_hint_disable_color" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:src="@drawable/ic_enter_small" />
-
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/black_line_color" />
-
-        <!--入学年份-->
-        <FrameLayout
-            android:id="@+id/activity_mine_info_education_enter_date_select_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="入学年份"
-                    android:textColor="@color/black_normal_color" />
-
-                <TextView
-                    android:id="@+id/activity_mine_info_education_enter_date_select_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:text="请选择入学年份"
-                    android:textColor="@color/black_hint_disable_color" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:src="@drawable/ic_enter_small" />
-
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/black_line_color" />
-
-        <!--专业-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="专业"
+                android:text="教育经历"
                 android:textColor="@color/black_normal_color" />
 
-            <EditText
-                android:id="@+id/activity_mine_info_education_major_edit_text"
+            <FrameLayout
+                android:id="@+id/activity_mine_info_education_save_layout"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="保存" />
+
+            </FrameLayout>
+        </FrameLayout>
+
+        <!--信息选择-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <!--学历-->
+            <FrameLayout
+                android:id="@+id/activity_mine_info_education_education_select_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="45dp"
-                android:layout_marginLeft="45dp"
-                android:background="@null"
-                android:hint="请填写您的专业"
-                android:maxEms="15"
-                android:maxLength="15"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@color/black_lighten_color"
-                android:textColorHint="@color/black_hint_disable_color"
-                android:textCursorDrawable="@drawable/shape_edittext_cursor"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </LinearLayout>
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
 
-</LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="学历"
+                        android:textColor="@color/black_normal_color" />
+
+                    <TextView
+                        android:id="@+id/activity_mine_info_education_education_select_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginLeft="45dp"
+                        android:text="请选择学历"
+                        android:textColor="@color/black_hint_disable_color" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:src="@drawable/ic_enter_small" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black_line_color" />
+
+            <!--学校-->
+            <FrameLayout
+                android:id="@+id/activity_mine_info_education_school_select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="学校"
+                        android:textColor="@color/black_normal_color" />
+
+                    <EditText
+                        android:id="@+id/activity_mine_info_education_school_select_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginLeft="45dp"
+                        android:background="@null"
+                        android:hint="请填写您的学校"
+                        android:maxEms="15"
+                        android:maxLength="15"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black_lighten_color"
+                        android:textColorHint="@color/black_hint_disable_color"
+                        android:textCursorDrawable="@drawable/shape_edittext_cursor"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black_line_color" />
+
+            <!--入学年份-->
+            <FrameLayout
+                android:id="@+id/activity_mine_info_education_enter_date_select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="入学年份"
+                        android:textColor="@color/black_normal_color" />
+
+                    <TextView
+                        android:id="@+id/activity_mine_info_education_enter_date_select_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:text="请选择入学年份"
+                        android:textColor="@color/black_hint_disable_color" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:src="@drawable/ic_enter_small" />
+
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black_line_color" />
+
+            <!--专业-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="专业"
+                    android:textColor="@color/black_normal_color" />
+
+                <EditText
+                    android:id="@+id/activity_mine_info_education_major_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginLeft="45dp"
+                    android:background="@null"
+                    android:hint="请填写您的专业"
+                    android:maxEms="15"
+                    android:maxLength="15"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/black_lighten_color"
+                    android:textColorHint="@color/black_hint_disable_color"
+                    android:textCursorDrawable="@drawable/shape_edittext_cursor"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

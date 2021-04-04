@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_background"
     android:orientation="vertical"
-    tools:context=".selfcognition.MineInfoSelfCognitionActivity">
+    tools:context=".ui.selfcognition.MineInfoSelfCognitionActivity">
 
     <!--    顶部区域-->
     <FrameLayout

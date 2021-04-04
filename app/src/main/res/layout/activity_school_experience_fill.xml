@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_background"
     android:orientation="vertical"
-    tools:context=".curriculumvitae.SchoolExperienceFillActivity">
+    tools:context=".ui.curriculumvitae.SchoolExperienceFillActivity">
 
     <!--顶部区域-->
     <LinearLayout

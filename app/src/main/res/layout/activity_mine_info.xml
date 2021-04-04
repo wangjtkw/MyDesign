@@ -1,179 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".mineinfo.MineInfoActivity">
+<layout>
 
-    <LinearLayout
+    <data>
+
+        <variable
+            name="imgSrc"
+            type="String" />
+
+
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <!--标题栏-->
-        <FrameLayout
+        android:layout_height="match_parent"
+        tools:context=".ui.mineinfo.MineInfoActivity">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--标题栏-->
             <FrameLayout
-                android:id="@+id/activity_mine_back_layout"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp">
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_back" />
-            </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/activity_mine_back_layout"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp">
 
-            <TextView
-                android:id="@+id/activity_mine_title_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="简历完善度10%"
-                android:textSize="16sp" />
-
-            <FrameLayout
-                android:id="@+id/activity_mine_save_layout"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical|end"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_back" />
+                </FrameLayout>
 
                 <TextView
+                    android:id="@+id/activity_mine_title_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="保存" />
+                    android:text="简历完善度10%"
+                    android:textSize="16sp" />
+
+                <FrameLayout
+                    android:id="@+id/activity_mine_save_layout"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="保存" />
+
+                </FrameLayout>
+
 
             </FrameLayout>
 
-
-        </FrameLayout>
-
-        <!--头像选择-->
-        <LinearLayout
-            android:id="@+id/activity_mine_head_select_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="180dp">
-
-                <ImageView
-                    android:id="@+id/activity_mine_head_select_image_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:scaleType="centerCrop" />
-
-            </androidx.cardview.widget.CardView>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
-                android:text="更改头像" />
-
-        </LinearLayout>
-
-        <!--基本信息提示栏-->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey_background"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|start"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="基本信息(必填)" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:text="输入真实姓名能提高录取率哦" />
-        </FrameLayout>
-
-        <!--基本信息填写栏-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical">
-
-            <!--姓名-->
+            <!--头像选择-->
             <LinearLayout
+                android:id="@+id/activity_mine_head_select_layout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/activity_mine_head_select_image_view"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_add"
+                    android:scaleType="centerCrop"
+                    imageFromUrl="@{imgSrc}"/>
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:layout_gravity="center_horizontal"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    app:cardCornerRadius="180dp">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/activity_mine_head_select_image_view"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:src="@drawable/ic_add"-->
+<!--                        android:scaleType="centerCrop" />-->
+
+<!--                </androidx.cardview.widget.CardView>-->
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="姓名"
-                    android:textColor="@color/black_normal_color" />
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="更改头像" />
+
+            </LinearLayout>
+
+            <!--基本信息提示栏-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_background"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="基本信息(必填)" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="输入真实姓名能提高录取率哦" />
+            </FrameLayout>
+
+            <!--基本信息填写栏-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <!--姓名-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="姓名"
+                        android:textColor="@color/black_normal_color" />
+
+                    <View
+                        android:id="@+id/default_focused_view"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+
+                    <requestFocus />
+
+                    <EditText
+                        android:id="@+id/activity_mine_name_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@null"
+                        android:hint="真实姓名"
+                        android:maxEms="10"
+                        android:maxLength="10"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black_lighten_color"
+                        android:textColorHint="@color/black_hint_disable_color"
+                        android:textCursorDrawable="@drawable/shape_edittext_cursor"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
                 <View
-                    android:id="@+id/default_focused_view"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true" />
-
-                <requestFocus />
-
-                <EditText
-                    android:id="@+id/activity_mine_name_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:background="@null"
-                    android:hint="真实姓名"
-                    android:maxEms="10"
-                    android:maxLength="10"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="@color/black_lighten_color"
-                    android:textColorHint="@color/black_hint_disable_color"
-                    android:textCursorDrawable="@drawable/shape_edittext_cursor"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_height="0.5dp"
+                    android:background="@color/black_line_color" />
+                <!--性别-->
+                <FrameLayout
+                    android:id="@+id/activity_mine_sex_select_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/black_line_color" />
-            <!--性别-->
-            <FrameLayout
-                android:id="@+id/activity_mine_sex_select_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="性别"
+                            android:textColor="@color/black_normal_color" />
+
+                        <TextView
+                            android:id="@+id/activity_mine_sex_select_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:text="请选择性别"
+                            android:textColor="@color/black_hint_disable_color" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:src="@drawable/ic_enter_small" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/black_line_color" />
+                <!--生日-->
+                <FrameLayout
+                    android:id="@+id/activity_mine_birthday_select_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="生日"
+                            android:textColor="@color/black_normal_color" />
+
+                        <TextView
+                            android:id="@+id/activity_mine_birthday_select_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:text="请选择生日"
+                            android:textColor="@color/black_hint_disable_color" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:src="@drawable/ic_enter_small" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/black_line_color" />
+                <!--职业-->
+                <FrameLayout
+                    android:id="@+id/activity_mine_role_select_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="职业"
+                            android:textColor="@color/black_normal_color" />
+
+                        <TextView
+                            android:id="@+id/activity_mine_role_select_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginLeft="16dp"
+                            android:text="请选择职业"
+                            android:textColor="@color/black_hint_disable_color" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:src="@drawable/ic_enter_small" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/black_line_color" />
+                <!--电话-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -183,332 +321,215 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="性别"
+                        android:text="电话"
                         android:textColor="@color/black_normal_color" />
 
                     <TextView
-                        android:id="@+id/activity_mine_sex_select_text_view"
+                        android:id="@+id/activity_mine_phone_num_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
-                        android:text="请选择性别"
-                        android:textColor="@color/black_hint_disable_color" />
+                        android:text="15213110106"
+                        android:textColor="@color/black_lighten_color" />
                 </LinearLayout>
+            </LinearLayout>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|end"
-                    android:src="@drawable/ic_enter_small" />
-
-            </FrameLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/black_line_color" />
-            <!--生日-->
+            <!--选填信息提示栏-->
             <FrameLayout
-                android:id="@+id/activity_mine_birthday_select_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="生日"
-                        android:textColor="@color/black_normal_color" />
-
-                    <TextView
-                        android:id="@+id/activity_mine_birthday_select_text_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:text="请选择生日"
-                        android:textColor="@color/black_hint_disable_color" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|end"
-                    android:src="@drawable/ic_enter_small" />
-
-            </FrameLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/black_line_color" />
-            <!--职业-->
-            <FrameLayout
-                android:id="@+id/activity_mine_role_select_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="职业"
-                        android:textColor="@color/black_normal_color" />
-
-                    <TextView
-                        android:id="@+id/activity_mine_role_select_text_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:text="请选择职业"
-                        android:textColor="@color/black_hint_disable_color" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|end"
-                    android:src="@drawable/ic_enter_small" />
-
-            </FrameLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/black_line_color" />
-            <!--电话-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:background="@color/grey_background"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="电话"
-                    android:textColor="@color/black_normal_color" />
-
-                <TextView
-                    android:id="@+id/activity_mine_phone_num_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_gravity="center_vertical|start"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
-                    android:text="15213110106"
-                    android:textColor="@color/black_lighten_color" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!--选填信息提示栏-->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey_background"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|start"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="选填信息" />
-
-        </FrameLayout>
-        <!--选填信息填写栏-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical">
-            <!--微信-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="微信"
-                    android:textColor="@color/black_normal_color" />
-
-                <EditText
-                    android:id="@+id/activity_mine_wechat_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:background="@null"
-                    android:hint="请输入微信"
-                    android:maxEms="15"
-                    android:maxLength="15"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="@color/black_lighten_color"
-                    android:textColorHint="@color/black_hint_disable_color"
-                    android:textCursorDrawable="@drawable/shape_edittext_cursor"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/black_line_color" />
-            <!--QQ-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="QQ"
-                    android:textColor="@color/black_normal_color" />
-
-                <EditText
-                    android:id="@+id/activity_mine_qq_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:background="@null"
-                    android:hint="请输入QQ"
-                    android:inputType="number"
-                    android:maxEms="15"
-                    android:maxLength="15"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="@color/black_lighten_color"
-                    android:textColorHint="@color/black_hint_disable_color"
-                    android:textCursorDrawable="@drawable/shape_edittext_cursor"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!--教育经历提示栏-->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey_background"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|start"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:text="教育经历(必填)" />
-
-        </FrameLayout>
-        <!--教育经历填写栏-->
-        <LinearLayout
-            android:id="@+id/activity_mine_education_select_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/activity_mine_education_school_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="完善教育经历"
-                    android:textColor="@color/black_normal_color" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|end"
-                    android:src="@drawable/ic_enter_small" />
+                    android:text="选填信息" />
 
             </FrameLayout>
-
+            <!--选填信息填写栏-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/activity_mine_education_into_year_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2017年入学" />
-
-                <TextView
-                    android:id="@+id/activity_mine_education_record_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:text="本科" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/activity_mine_education_major_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
-                android:text="软件工程" />
-
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey_background">
-
-            <Button
-                android:id="@+id/activity_mine_next_step_button"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="32dp"
-                android:background="@drawable/shape_circle_corner_grey"
-                android:text="下一步"
-                android:textColor="@color/white_normal_color" />
+                android:orientation="vertical">
+                <!--微信-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
 
-        </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="微信"
+                        android:textColor="@color/black_normal_color" />
+
+                    <EditText
+                        android:id="@+id/activity_mine_wechat_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:background="@null"
+                        android:hint="请输入微信"
+                        android:maxEms="15"
+                        android:maxLength="15"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black_lighten_color"
+                        android:textColorHint="@color/black_hint_disable_color"
+                        android:textCursorDrawable="@drawable/shape_edittext_cursor"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/black_line_color" />
+                <!--QQ-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="QQ"
+                        android:textColor="@color/black_normal_color" />
+
+                    <EditText
+                        android:id="@+id/activity_mine_qq_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginLeft="24dp"
+                        android:background="@null"
+                        android:hint="请输入QQ"
+                        android:inputType="number"
+                        android:maxEms="15"
+                        android:maxLength="15"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black_lighten_color"
+                        android:textColorHint="@color/black_hint_disable_color"
+                        android:textCursorDrawable="@drawable/shape_edittext_cursor"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--教育经历提示栏-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_background"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="教育经历(必填)" />
+
+            </FrameLayout>
+            <!--教育经历填写栏-->
+            <LinearLayout
+                android:id="@+id/activity_mine_education_select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/activity_mine_education_school_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="完善教育经历"
+                        android:textColor="@color/black_normal_color" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:src="@drawable/ic_enter_small" />
+
+                </FrameLayout>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/activity_mine_education_into_year_text_view"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="2017年入学" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/activity_mine_education_record_text_view"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="8dp"-->
+<!--                        android:layout_marginLeft="8dp"-->
+<!--                        android:text="本科" />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/activity_mine_education_major_text_view"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:text="软件工程" />-->
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_background">
+
+                <Button
+                    android:id="@+id/activity_mine_next_step_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/shape_circle_corner_grey"
+                    android:text="下一步"
+                    android:textColor="@color/white_normal_color" />
+
+            </FrameLayout>
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
+</layout>

@@ -1,7 +1,7 @@
 package com.example.mydesign
 
 import android.widget.DatePicker
-import com.example.mydesign.album.AlbumSelectUtils
+import com.example.mydesign.ui.album.AlbumSelectUtils
 import com.example.mydesign.base.BaseFragment
 
 // TODO: Rename parameter arguments, choose names that match
@@ -19,7 +19,7 @@ class MessageFragment : BaseFragment() {
 //        pickerView = f(R.id.text_date_picker)
 ////        pickerView.
 //        Utils.setDatePickerDividerColor(pickerView)
-        AlbumSelectUtils().getImages(fragmentView.context)
+//        AlbumSelectUtils().getImages(fragmentView.context)
     }
 
 
