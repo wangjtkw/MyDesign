@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 
 object PersonInfo1Bean {
     var usersImg = MutableLiveData<AlbumBean>()
-    var usersName = MutableLiveData<String>()
+    var usersName = MutableLiveData<String>("青团子")
     var usersSex = MutableLiveData<String>("请选择")
     var usersBirthday = MutableLiveData<String>("请选择")
     var usersRole = MutableLiveData<String>("请选择")
@@ -17,6 +17,8 @@ object PersonInfo1Bean {
     var educationExperiencesSchool = MutableLiveData<String>()
     var educationExperiencesEnterDate = MutableLiveData<String>("请选择")
     var educationExperiencesMajor = MutableLiveData<String>()
+
+    var description = MutableLiveData<String>()
 
     fun clear() {
         usersName.value = ""

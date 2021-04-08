@@ -1,163 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/grey_background"
-    android:orientation="vertical"
-    tools:context=".ui.selfcognition.MineInfoSelfCognitionActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!--    顶部区域-->
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:background="@color/grey_background"
+        android:orientation="vertical"
+        tools:context=".ui.selfcognition.MineInfoSelfCognitionActivity">
 
+        <!--    顶部区域-->
         <FrameLayout
-            android:id="@+id/mine_info_self_cognition_back_layout"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp">
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white">
 
-            <ImageView
-                android:layout_width="30dp"
+            <FrameLayout
+                android:id="@+id/mine_info_self_cognition_back_layout"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_back" />
+                android:layout_gravity="center"
+                android:text="自我认知"
+                android:textColor="@color/black_normal_color" />
         </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="自我认知"
-            android:textColor="@color/black_normal_color" />
-    </FrameLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="个人简介"
-        android:textColor="@color/black_lighten_color"
-        android:textSize="12sp" />
-
-    <!--    填写部分-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="vertical">
-
-        <!--自我描述-->
-        <LinearLayout
-            android:id="@+id/mine_info_self_cognition_self_description_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|center_vertical"
-                    android:text="自我描述"
-                    android:textColor="@color/black_normal_color"
-                    android:textSize="14sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_enter_small" />
-
-            </FrameLayout>
-
-            <TextView
-                android:id="@+id/mine_info_self_cognition_self_description_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="8dp"
-                android:minHeight="12dp"
-                android:text="我阿森纳打算年底阿斯顿金克拉的骄傲上升空间的空间卡时间单卡双卡角度看肯定就去刷卡的空间" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/black_line_color" />
-
-        <!--个人标签--><!--还差flowLayout-->
-        <LinearLayout
-            android:id="@+id/mine_info_self_cognition_self_tag_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:text="个人简介"
+            android:textColor="@color/black_lighten_color"
+            android:textSize="12sp" />
+
+        <!--    填写部分-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="vertical">
+
+            <!--自我描述-->
+            <LinearLayout
+                android:id="@+id/mine_info_self_cognition_self_description_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:text="自我描述"
+                        android:textColor="@color/black_normal_color"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_enter_small" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/mine_info_self_cognition_self_description_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:minHeight="12dp"
+                    android:text="我阿森纳打算年底阿斯顿金克拉的骄傲上升空间的空间卡时间单卡双卡角度看肯定就去刷卡的空间" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black_line_color" />
+
+            <!--个人标签--><!--还差flowLayout-->
+            <LinearLayout
+                android:id="@+id/mine_info_self_cognition_self_tag_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:text="个人标签"
+                        android:textColor="@color/black_normal_color"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_enter_small" />
+
+                </FrameLayout>
+
+
+            </LinearLayout>
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/grey_background">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|center_vertical"
-                    android:text="个人标签"
-                    android:textColor="@color/black_normal_color"
-                    android:textSize="14sp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginEnd="16dp"
+                <Button
+                    android:id="@+id/mine_info_self_cognition_self_next_step_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginRight="16dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_enter_small" />
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/shape_circle_corner_grey"
+                    android:text="下一步"
+                    android:textColor="@color/white_normal_color" />
 
             </FrameLayout>
-
-
         </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey_background">
-
-            <Button
-                android:id="@+id/mine_info_self_cognition_self_next_step_button"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="32dp"
-                android:background="@drawable/shape_circle_corner_grey"
-                android:text="下一步"
-                android:textColor="@color/white_normal_color" />
-
-        </FrameLayout>
     </LinearLayout>
-</LinearLayout>
+
+</layout>

@@ -101,10 +101,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/gray_200">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/fragment_home_view_pager"

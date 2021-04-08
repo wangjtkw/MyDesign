@@ -9,6 +9,8 @@ import com.example.mydesign.api.ApiErrorResponse
 import com.example.mydesign.api.ApiResponse
 import com.example.mydesign.api.ApiSuccessResponse
 import com.example.mydesign.data.bean.*
+import com.example.mydesign.data.bean.entity.MineInfoEntity
+import com.example.mydesign.data.bean.entity.UserAccountEntity
 import com.example.mydesign.data.datasource.LoginDataSource
 import com.example.mydesign.data.datasource.MineInfoDataSource
 import com.example.mydesign.ui.main.MainActivity
@@ -24,9 +26,10 @@ class MineInfoViewModel @Inject constructor(
     private val loginDataSource: LoginDataSource
 ) : ViewModel() {
     private val TAG = "MineInfoViewModel"
-    val insertPersonInfoResult = MediatorLiveData<ApiResponse<MyResponse<UserAccountBean>>>()
-    val getUserInfoResult = MediatorLiveData<MineInfoBean>()
+    val insertPersonInfoResult = MediatorLiveData<ApiResponse<MyResponse<UserAccountEntity>>>()
+    val getUserInfoResult = MediatorLiveData<MineInfoEntity>()
     val updateHeadImgResult = MediatorLiveData<ApiResponse<MyResponse<Any>>>()
+    val updateInfoResult = MediatorLiveData<ApiResponse<MyResponse<Any>>>()
 
     fun insertUserInfo(
         accountId: Int,
@@ -94,7 +97,7 @@ class MineInfoViewModel @Inject constructor(
         }
     }
 
-    public fun getInfo(usersId: Int) {
+    fun getInfo(usersId: Int) {
         val result = mineInfoDataSource.getUserInfo(viewModelScope, usersId)
         getUserInfoResult.addSource(result) {
             Log.d(TAG, it.message ?: "")
@@ -110,6 +113,7 @@ class MineInfoViewModel @Inject constructor(
                             usersPhoneNum.value = users.usersPhoneNum
                             usersWechat.value = users.usersWechat
                             usersQq.value = users.usersQq
+                            description.value = users.usersSelfDescription
                         }
                     }
                     it.data.educationExperiences!!.let { exp ->
@@ -157,6 +161,70 @@ class MineInfoViewModel @Inject constructor(
             }
         }
     }
+
+    fun updateUserInfo(
+        accountId: Int,
+        callback: () -> Unit
+    ) {
+        PersonInfo1Bean.apply {
+            val name = usersName.value
+            val sex = usersSex.value
+            val birthday = usersBirthday.value
+            val role = usersRole.value
+            val phoneNum = usersPhoneNum.value
+            val weChat = usersWechat.value ?: ""
+            val qq = usersQq.value ?: ""
+
+            val education = educationExperiencesEducation.value
+            val school = educationExperiencesSchool.value
+            val enterDate = educationExperiencesEnterDate.value
+            val major = educationExperiencesMajor.value
+
+            ToastUtil.makeToast("正在保存...")
+            viewModelScope.launch(Dispatchers.IO) {
+                val result = mineInfoDataSource.updateUserInfo(
+                    accountId.toString(),
+                    name!!,
+                    sex!!,
+                    birthday!!,
+                    role!!,
+                    phoneNum!!,
+                    weChat,
+                    qq,
+                    education!!,
+                    school!!,
+                    enterDate!!,
+                    major!!
+                )
+                launch(Dispatchers.Main) {
+                    updateInfoResult.addSource(result) {
+                        when (it) {
+                            is ApiSuccessResponse -> {
+                                if (it.body.code != 200) {
+                                    makeToast("发生错误：${it.body.description}")
+                                } else {
+                                    makeToast("保存成功")
+                                    callback()
+                                }
+                            }
+                            is ApiEmptyResponse -> {
+                                makeToast("保存失败！")
+                            }
+                            is ApiErrorResponse -> {
+                                makeToast("发生错误：${it.errorMessage}")
+                            }
+                            else -> {
+                                makeToast("失败！")
+                            }
+                        }
+                    }
+                }
+            }
+
+
+        }
+    }
+
 
     private fun makeToast(msg: String) {
         viewModelScope.launch(Dispatchers.Main) {

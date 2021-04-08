@@ -9,50 +9,47 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.example.mydesign.R
+import com.example.mydesign.data.bean.PersonInfo1Bean
+import com.example.mydesign.databinding.ActivityMineInfoBinding
+import com.example.mydesign.databinding.ActivitySelfDescriptionBinding
 import com.example.mydesign.utils.StatusBarUtils
+import com.example.mydesign.utils.ToastUtil
 
 /**
  * 自我描述
  */
 class SelfDescriptionActivity : AppCompatActivity() {
-    private lateinit var cancelLayout: FrameLayout
-    private lateinit var selfDescriptionEditText: EditText
-    private lateinit var selfDescriptionTextView: TextView
-    private lateinit var saveButton: Button
-
+    private var mBinding: ActivitySelfDescriptionBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         StatusBarUtils.setLightBar(this, Color.TRANSPARENT)
-        setContentView(R.layout.activity_self_description)
-        init()
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_self_description)
+        observeData()
         initListener()
     }
 
-    private fun init() {
-        cancelLayout = f(R.id.activity_self_description_cancel_layout)
-        selfDescriptionEditText = f(R.id.activity_self_description_edit_text)
-        selfDescriptionTextView = f(R.id.activity_self_description_text_view)
-        saveButton = f(R.id.activity_self_description_save_button)
+    private fun observeData() {
+        PersonInfo1Bean.description.observe(this) {
+            mBinding!!.activitySelfDescriptionEditText.setText(it)
+        }
     }
 
     private fun initListener() {
-        cancelLayout.setOnClickListener {
+        mBinding!!.activitySelfDescriptionCancelLayout.setOnClickListener {
             finish()
         }
-        saveButton.setOnClickListener {
-            val intent = Intent()
-            intent.putExtra(
-                MineInfoSelfCognitionActivity.SELF_DESCRIPTION,
-                selfDescriptionEditText.text
-            )
-            setResult(RESULT_OK, intent)
-            finish()
+        mBinding!!.activitySelfDescriptionSaveButton.setOnClickListener {
+            val description = mBinding!!.activitySelfDescriptionEditText.text.toString()
+            if (description.isEmpty()) {
+                ToastUtil.makeToast("请输入自我描述！")
+            } else {
+                PersonInfo1Bean.description.value = description
+                finish()
+            }
         }
     }
 
-    private fun <T : View> f(id: Int): T {
-        return findViewById(id)
-    }
 }

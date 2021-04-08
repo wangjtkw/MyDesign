@@ -1,366 +1,390 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#D87070"
-    tools:context=".ui.mine.MineFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
-    <LinearLayout
-        android:id="@+id/fragment_mine_head_name_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08">
+        <variable
+            name="imgSrc"
+            type="String" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/fragment_mine_card_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            app:cardCornerRadius="180dp">
-
-            <ImageView
-                android:id="@+id/fragment_mine_title_head_image_view"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/test" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/fragment_mine_name_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:text="青团子"
-            android:textColor="#DE000000"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/fragment_mine_card_view"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
+        <variable
+            name="name"
+            type="String" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_main_record_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_mine_head_name_view">
+        android:layout_height="match_parent"
+        android:background="@color/gray_200"
+        tools:context=".ui.mine.MineFragment">
+
 
         <LinearLayout
-            android:id="@+id/fragment_mine_num_all_record_layout"
+            android:id="@+id/fragment_mine_head_name_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/fragment_mine_num_sign_up_layout"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/fragment_mine_num_all_record_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="0"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="全部记录" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fragment_mine_num_sign_up_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toRightOf="@id/fragment_mine_num_all_record_layout"
-            app:layout_constraintRight_toLeftOf="@id/fragment_mine_num_enter_layout"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/fragment_mine_num_sign_up_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="0"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="已报名" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fragment_mine_num_enter_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toRightOf="@id/fragment_mine_num_sign_up_layout"
-            app:layout_constraintRight_toLeftOf="@id/fragment_mine_num_finish_layout"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/fragment_mine_num_enter_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="0"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="已录取" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fragment_mine_num_finish_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toRightOf="@id/fragment_mine_num_enter_layout"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/fragment_mine_num_finish_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="0"
-                android:textSize="28sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="已结束" />
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_mine_center_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/shape_circle_corner_white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_main_record_layout">
-
-        <FrameLayout
-            android:id="@+id/fragment_mine_my_resume_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/fragment_mine_line_view"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical|start">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ic_resume" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="8dp"
-                    android:text="我的简历" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/fragment_mine_my_resume_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:text="10%" />
-
-        </FrameLayout>
-
-        <View
-            android:id="@+id/fragment_mine_line_view"
-            android:layout_width="0.5dp"
-            android:layout_height="30dp"
-            android:background="#61BFBFBF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/fragment_mine_my_resume_layout"
-            app:layout_constraintRight_toLeftOf="@id/fragment_mine_my_collection_layout"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <FrameLayout
-            android:id="@+id/fragment_mine_my_collection_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/fragment_mine_line_view"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical|start">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical|start"
-                    android:src="@drawable/ic_collection" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="8dp"
-                    android:text="我的收藏" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/fragment_mine_my_collection_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:text="0" />
-
-        </FrameLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/shape_circle_corner_white"
-        android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_mine_center_view">
-
-        <!--        切换至招聘者-->
-        <FrameLayout
-            android:id="@+id/fragment_mine_change_to_employer_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingStart="16dp"
-            android:paddingLeft="16dp"
-            android:paddingEnd="8dp"
-            android:paddingRight="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical|start"
-                    android:src="@drawable/ic_exchange" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:text="切换至招聘者"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center_vertical|end"
-                android:src="@drawable/ic_enter" />
-
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:background="#61BFBFBF" />
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.08">
 
-        <!--        设置-->
-        <FrameLayout
-            android:id="@+id/fragment_mine_setting_layout"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fragment_mine_title_head_image_view"
+                imageFromUrl="@{imgSrc}"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_add" />
+
+            <!--        <androidx.cardview.widget.CardView-->
+            <!--            android:id="@+id/fragment_mine_card_view"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginStart="24dp"-->
+            <!--            android:layout_marginLeft="24dp"-->
+            <!--            app:cardCornerRadius="180dp">-->
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/fragment_mine_title_head_image_view"-->
+            <!--                android:layout_width="50dp"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:scaleType="centerCrop"-->
+            <!--                android:src="@drawable/test" />-->
+            <!--        </androidx.cardview.widget.CardView>-->
+
+            <TextView
+                android:id="@+id/fragment_mine_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@{name}"
+                android:textColor="#DE000000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/fragment_mine_title_head_image_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_main_record_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingStart="16dp"
-            android:paddingLeft="16dp"
-            android:paddingEnd="8dp"
-            android:paddingRight="8dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_mine_head_name_view">
 
             <LinearLayout
+                android:id="@+id/fragment_mine_num_all_record_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/fragment_mine_num_sign_up_layout"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center_vertical|start"
-                    android:src="@drawable/ic_setting" />
+                <TextView
+                    android:id="@+id/fragment_mine_num_all_record_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="0"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:text="设置"
-                    android:textSize="16sp" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="全部记录" />
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center_vertical|end"
-                android:src="@drawable/ic_enter" />
+            <LinearLayout
+                android:id="@+id/fragment_mine_num_sign_up_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toRightOf="@id/fragment_mine_num_all_record_layout"
+                app:layout_constraintRight_toLeftOf="@id/fragment_mine_num_enter_layout"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </FrameLayout>
+                <TextView
+                    android:id="@+id/fragment_mine_num_sign_up_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="0"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="已报名" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fragment_mine_num_enter_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toRightOf="@id/fragment_mine_num_sign_up_layout"
+                app:layout_constraintRight_toLeftOf="@id/fragment_mine_num_finish_layout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/fragment_mine_num_enter_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="0"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="已录取" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fragment_mine_num_finish_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toRightOf="@id/fragment_mine_num_enter_layout"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/fragment_mine_num_finish_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="0"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="已结束" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_mine_center_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/shape_circle_corner_white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_main_record_layout">
+
+            <FrameLayout
+                android:id="@+id/fragment_mine_my_resume_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/fragment_mine_line_view"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|start">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_resume" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:text="我的简历" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/fragment_mine_my_resume_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:text="10%" />
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/fragment_mine_line_view"
+                android:layout_width="0.5dp"
+                android:layout_height="30dp"
+                android:background="#61BFBFBF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/fragment_mine_my_resume_layout"
+                app:layout_constraintRight_toLeftOf="@id/fragment_mine_my_collection_layout"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/fragment_mine_my_collection_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/fragment_mine_line_view"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|start">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:src="@drawable/ic_collection" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:text="我的收藏" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/fragment_mine_my_collection_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:text="0" />
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/shape_circle_corner_white"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_mine_center_view">
+
+            <!--        切换至招聘者-->
+<!--            <FrameLayout-->
+<!--                android:id="@+id/fragment_mine_change_to_employer_layout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:paddingStart="16dp"-->
+<!--                android:paddingLeft="16dp"-->
+<!--                android:paddingEnd="8dp"-->
+<!--                android:paddingRight="8dp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="20dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_gravity="center_vertical|start"-->
+<!--                        android:src="@drawable/ic_exchange" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:layout_marginStart="8dp"-->
+<!--                        android:layout_marginLeft="8dp"-->
+<!--                        android:text="切换至招聘者"-->
+<!--                        android:textSize="16sp" />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="25dp"-->
+<!--                    android:layout_height="25dp"-->
+<!--                    android:layout_gravity="center_vertical|end"-->
+<!--                    android:src="@drawable/ic_enter" />-->
+
+<!--            </FrameLayout>-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#61BFBFBF" />
+
+            <!--        设置-->
+            <FrameLayout
+                android:id="@+id/fragment_mine_setting_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:paddingEnd="8dp"
+                android:paddingRight="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical|start"
+                        android:src="@drawable/ic_setting" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="设置"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:src="@drawable/ic_enter" />
+
+            </FrameLayout>
+
+        </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

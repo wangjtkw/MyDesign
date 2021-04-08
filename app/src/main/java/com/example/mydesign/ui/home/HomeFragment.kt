@@ -36,15 +36,17 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initViewPager() {
-        fragmentList.apply {
-            add(HomePageFragment.newInstance("0", true, true, true, true))
-            add(HomePageFragment.newInstance("1", true, true, true))
-            add(HomePageFragment.newInstance("2", true, true))
-            add(HomePageFragment.newInstance("3", true))
-            add(HomePageFragment.newInstance("4"))
-        }
+        val fragmentList = listOf(
+            HomePageFragment.newInstance(null),
+            HomePageFragment.newInstance("在家做"),
+            HomePageFragment.newInstance("在本地"),
+            HomePageFragment.newInstance("主播"),
+            HomePageFragment.newInstance("其它")
+        )
+
         viewPagerAdapter = ViewPagerAdapter(fragmentList, requireActivity())
         viewPager.adapter = viewPagerAdapter
+        viewPager.offscreenPageLimit = 5
         viewPager.currentItem = 0
     }
 

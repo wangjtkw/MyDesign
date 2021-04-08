@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.mydesign.api.API
 import com.example.mydesign.api.ApiResponse
 import com.example.mydesign.data.bean.MyResponse
-import com.example.mydesign.data.bean.UserAccountBean
+import com.example.mydesign.data.bean.entity.UserAccountEntity
 import com.example.mydesign.data.db.UserDB
 import com.example.mydesign.ext.isConnectedNetwork
 import com.example.mydesign.utils.AppHelper
@@ -24,22 +24,22 @@ class LoginDataSource @Inject constructor(
         scope: CoroutineScope,
         account: String,
         password: String
-    ): LiveData<Resource<UserAccountBean>> {
+    ): LiveData<Resource<UserAccountEntity>> {
         return object :
-            ScopeDataSource<MyResponse<UserAccountBean>, UserAccountBean>(scope) {
-            override suspend fun loadData(): LiveData<ApiResponse<MyResponse<UserAccountBean>>> {
+            ScopeDataSource<MyResponse<UserAccountEntity>, UserAccountEntity>(scope) {
+            override suspend fun loadData(): LiveData<ApiResponse<MyResponse<UserAccountEntity>>> {
                 return api.employerLogin(account, password)
             }
 
-            override fun loadFromDb(): LiveData<UserAccountBean> {
+            override fun loadFromDb(): LiveData<UserAccountEntity> {
                 return db.userAccountDao().selectByAccount(account)
             }
 
-            override fun shouldFetch(data: UserAccountBean?): Boolean {
+            override fun shouldFetch(data: UserAccountEntity?): Boolean {
                 return AppHelper.mContext.isConnectedNetwork()
             }
 
-            override suspend fun saveCallResult(item: MyResponse<UserAccountBean>) {
+            override suspend fun saveCallResult(item: MyResponse<UserAccountEntity>) {
                 if (item.code == 200 && item.data != null) {
                     db.userAccountDao().insertUserAccount(item.data)
                 } else {
@@ -52,7 +52,7 @@ class LoginDataSource @Inject constructor(
         }.asLiveData()
     }
 
-    fun insertAccount(scope: CoroutineScope, userAccountBean: UserAccountBean) {
+    fun insertAccount(scope: CoroutineScope, userAccountBean: UserAccountEntity) {
         scope.launch(Dispatchers.IO) {
             db.userAccountDao().insertUserAccount(userAccountBean)
         }

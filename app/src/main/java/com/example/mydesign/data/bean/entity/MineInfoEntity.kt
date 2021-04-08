@@ -1,17 +1,15 @@
-package com.example.mydesign.data.bean
+package com.example.mydesign.data.bean.entity
 
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.room.Embedded
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.example.mydesign.data.bean.EducationExperienceBean
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @Entity(tableName = "mine_info_bean")
 @JsonClass(generateAdapter = true)
-data class MineInfoBean(
+data class MineInfoEntity(
     @Json(name = "curriculumVitaeId")
     val curriculumVitaeId: Int?,
     @Json(name = "educationExperiencesId")

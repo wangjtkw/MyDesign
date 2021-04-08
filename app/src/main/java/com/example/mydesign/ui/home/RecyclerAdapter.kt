@@ -7,14 +7,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydesign.R
 import com.example.mydesign.data.bean.HomePageItemBean
+import com.example.mydesign.data.bean.entity.JobPositionEntity
 
 
 class RecyclerAdapter : RecyclerView.Adapter<HomePageRecyclerViewHolder>() {
     private var mCallback: (() -> Unit)? = null
-    private val mData = ArrayList<HomePageItemBean>()
+    private val mData = ArrayList<JobPositionEntity>()
     private var count: Int = 0
 
-    fun addData(data: List<HomePageItemBean>) {
+    fun addData(data: List<JobPositionEntity>) {
         count = mData.size
         mData.addAll(data)
         notifyItemRangeChanged(count, data.size)
@@ -36,6 +37,7 @@ class RecyclerAdapter : RecyclerView.Adapter<HomePageRecyclerViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: HomePageRecyclerViewHolder, position: Int) {
+        holder.bindData(mData[position], position)
 //        mData[position].let {
 //            Log.e("recycler", it.company.toString())
 //            holder.setText(it.title, R.id.item_home_page_title)

@@ -10,22 +10,32 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.mydesign.MessageFragment
 import com.example.mydesign.R
-import com.example.mydesign.data.bean.UserAccountBean
+import com.example.mydesign.data.bean.entity.UserAccountEntity
 import com.example.mydesign.ui.home.HomeFragment
 import com.example.mydesign.ui.mine.MineFragment
 import com.example.mydesign.publicclass.TabPagerBinding
 import com.example.mydesign.publicclass.ViewPagerAdapter
 import com.example.mydesign.utils.StatusBarUtils
 import com.google.android.material.tabs.TabLayout
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), HasAndroidInjector {
     private lateinit var mainTabLayout: TabLayout
     private lateinit var mainViewPager: ViewPager2
     private lateinit var viewPagerAdapter: ViewPagerAdapter
     private val fragmentList = ArrayList<Fragment>()
 
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
+    override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         StatusBarUtils.setLightBar(this, Color.TRANSPARENT)
         setContentView(R.layout.activity_main)
@@ -65,9 +75,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        var USER_ACCOUNT_BEAN: UserAccountBean? = null
+        var USER_ACCOUNT_BEAN: UserAccountEntity? = null
 
-        fun actionStart(context: Context, userAccountBean: UserAccountBean) {
+        fun actionStart(context: Context, userAccountBean: UserAccountEntity) {
             val intent = Intent(context, MainActivity::class.java)
             USER_ACCOUNT_BEAN = userAccountBean
             context.startActivity(intent)

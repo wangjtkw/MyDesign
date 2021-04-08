@@ -19,18 +19,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name="com.example.mydesign.ui.curriculumvitae.InternshipExperienceFillActivity" />
-        <activity android:name="com.example.mydesign.ui.curriculumvitae.InternshipExperienceShowActivity" />
-        <activity android:name="com.example.mydesign.ui.curriculumvitae.SchoolExperienceShowActivity" />
-        <activity android:name="com.example.mydesign.ui.curriculumvitae.SchoolExperienceFillActivity" />
-        <activity android:name="com.example.mydesign.ui.curriculumvitae.SkillAndCertificateActivity" />
-        <activity android:name="com.example.mydesign.ui.curriculumvitae.EmileActivity" />
-        <activity android:name="com.example.mydesign.ui.curriculumvitae.MineInfoCurriculumVitaeActivity" />
-        <activity android:name="com.example.mydesign.ui.selfcognition.SelfDescriptionActivity" />
-        <activity android:name="com.example.mydesign.ui.album.AlbumActivity" />
-        <activity android:name="com.example.mydesign.ui.selfcognition.MineInfoSelfCognitionActivity" />
-        <activity android:name="com.example.mydesign.ui.mineinfoeducation.MineInfoEducationActivity" />
-        <activity android:name="com.example.mydesign.ui.mineinfo.MineInfoActivity" />
+        <activity android:name=".ui.positiondetail.PositionDetailActivity">
+
+
+        </activity>
+        <activity android:name=".ui.curriculumvitae.InternshipExperienceFillActivity" />
+        <activity android:name=".ui.curriculumvitae.InternshipExperienceShowActivity" />
+        <activity android:name=".ui.curriculumvitae.SchoolExperienceShowActivity" />
+        <activity android:name=".ui.curriculumvitae.SchoolExperienceFillActivity" />
+        <activity android:name=".ui.curriculumvitae.SkillAndCertificateActivity" />
+        <activity android:name=".ui.curriculumvitae.EmileActivity" />
+        <activity android:name=".ui.curriculumvitae.MineInfoCurriculumVitaeActivity" />
+        <activity android:name=".ui.selfcognition.SelfDescriptionActivity" />
+        <activity android:name=".ui.album.AlbumActivity" />
+        <activity android:name=".ui.selfcognition.MineInfoSelfCognitionActivity" />
+        <activity android:name=".ui.mineinfoeducation.MineInfoEducationActivity" />
+        <activity android:name=".ui.mineinfo.MineInfoActivity" />
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,9 +43,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.login.RegisterActivity" />
-        <activity android:name="com.example.mydesign.ui.main.MainActivity" />
-
-
+        <activity android:name=".ui.main.MainActivity" />
     </application>
 
 </manifest>

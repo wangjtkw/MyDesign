@@ -3,10 +3,10 @@ package com.example.mydesign.data.datasource
 import androidx.lifecycle.LiveData
 import com.example.mydesign.api.API
 import com.example.mydesign.api.ApiResponse
-import com.example.mydesign.data.bean.MineInfoBean
+import com.example.mydesign.data.bean.entity.MineInfoEntity
 import com.example.mydesign.data.bean.MineInfoResponseBean
 import com.example.mydesign.data.bean.MyResponse
-import com.example.mydesign.data.bean.UserAccountBean
+import com.example.mydesign.data.bean.entity.UserAccountEntity
 import com.example.mydesign.data.db.UserDB
 import com.example.mydesign.ext.isConnectedNetwork
 import com.example.mydesign.utils.AppHelper
@@ -26,23 +26,23 @@ class MineInfoDataSource @Inject constructor(
     fun insertUserInfo(
         param: HashMap<String, RequestBody>,
         headImg: MultipartBody.Part,
-    ): LiveData<ApiResponse<MyResponse<UserAccountBean>>> {
+    ): LiveData<ApiResponse<MyResponse<UserAccountEntity>>> {
         return api.insertUserInfo(headImg, param)
     }
 
     fun getUserInfo(scope: CoroutineScope, usersId: Int)
-            : LiveData<Resource<MineInfoBean>> {
+            : LiveData<Resource<MineInfoEntity>> {
         return object :
-            ScopeDataSource<MyResponse<MineInfoResponseBean>, MineInfoBean>(scope) {
+            ScopeDataSource<MyResponse<MineInfoResponseBean>, MineInfoEntity>(scope) {
             override suspend fun loadData(): LiveData<ApiResponse<MyResponse<MineInfoResponseBean>>> {
                 return api.getUserInfo(usersId)
             }
 
-            override fun loadFromDb(): LiveData<MineInfoBean> {
+            override fun loadFromDb(): LiveData<MineInfoEntity> {
                 return db.mineInfoDao().selectById(usersId)
             }
 
-            override fun shouldFetch(data: MineInfoBean?): Boolean {
+            override fun shouldFetch(data: MineInfoEntity?): Boolean {
                 return AppHelper.mContext.isConnectedNetwork()
             }
 
@@ -59,6 +59,38 @@ class MineInfoDataSource @Inject constructor(
             }
         }.asLiveData()
     }
+
+    fun updateUserInfo(
+        usersAccountId: String,
+        usersName: String,
+        usersSex: String,
+        usersBirthday: String,
+        usersRole: String,
+        usersPhoneNum: String,
+        usersWechat: String,
+        usersQq: String,
+        educationExperiencesEducation: String,
+        educationExperiencesSchool: String,
+        educationExperiencesEnterDate: String,
+        educationExperiencesMajor: String,
+    ): LiveData<ApiResponse<MyResponse<Any>>> {
+        return api.updateUserInfo(
+            usersAccountId,
+            usersName,
+            usersSex,
+            usersBirthday,
+            usersRole,
+            usersPhoneNum,
+            usersWechat,
+            usersQq,
+            educationExperiencesEducation,
+            educationExperiencesSchool,
+            educationExperiencesEnterDate,
+            educationExperiencesMajor
+        )
+
+    }
+
 
     fun updateHeadImg(
         headImg: MultipartBody.Part,

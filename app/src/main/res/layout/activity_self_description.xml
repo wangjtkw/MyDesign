@@ -1,101 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.selfcognition.SelfDescriptionActivity">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-
-        <FrameLayout
-            android:id="@+id/activity_self_description_cancel_layout"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_cancel" />
-
-        </FrameLayout>
-    </FrameLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:text="自我描述"
-        android:textColor="@color/black_normal_color"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="16dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.selfcognition.SelfDescriptionActivity">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="?attr/actionBarSize">
 
-            <EditText
-                android:id="@+id/activity_self_description_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:maxLength="140"
-                android:minHeight="20dp"
-                android:textSize="14sp"
-                android:textColor="@color/black_lighten_color"/>
+            <FrameLayout
+                android:id="@+id/activity_self_description_cancel_layout"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp">
 
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_cancel" />
+
+            </FrameLayout>
         </FrameLayout>
 
-
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:text="自我描述"
+            android:textColor="@color/black_normal_color"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/activity_self_description_text_view"
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <EditText
+                    android:id="@+id/activity_self_description_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:maxLength="140"
+                    android:minHeight="20dp"
+                    android:textColor="@color/black_lighten_color"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0" />
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/140" />
+                <TextView
+                    android:id="@+id/activity_self_description_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/140" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/activity_self_description_save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:text="保存"
+            android:textColor="@color/white_normal_color" />
+
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/activity_self_description_save_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginRight="16dp"
-        android:text="保存"
-        android:textColor="@color/white_normal_color" />
-
-
-</LinearLayout>
+</layout>

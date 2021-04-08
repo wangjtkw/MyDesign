@@ -5,6 +5,8 @@ import com.example.mydesign.ui.login.LoginActivity
 import com.example.mydesign.ui.login.RegisterActivity
 import com.example.mydesign.ui.main.MainActivity
 import com.example.mydesign.ui.mineinfo.MineInfoActivity
+import com.example.mydesign.ui.positiondetail.PositionDetailActivity
+import com.example.mydesign.ui.selfcognition.MineInfoSelfCognitionActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -26,5 +28,13 @@ abstract class ActivityBuildersModel {
     @ExperimentalPagingApi
     @ContributesAndroidInjector()
     abstract fun contributeMineInfoActivity(): MineInfoActivity
+
+    @ExperimentalPagingApi
+    @ContributesAndroidInjector()
+    abstract fun contributeMineInfoSelfCognitionActivity(): MineInfoSelfCognitionActivity
+
+    @ExperimentalPagingApi
+    @ContributesAndroidInjector()
+    abstract fun contributePositionDetailActivity(): PositionDetailActivity
 
 }

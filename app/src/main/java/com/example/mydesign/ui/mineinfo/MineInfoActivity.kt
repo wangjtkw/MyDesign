@@ -67,7 +67,6 @@ class MineInfoActivity : PermissionActivity(), HasAndroidInjector {
     private fun init() {
         initData()
         observeData()
-        getData()
         initListener()
         setListener()
     }
@@ -76,6 +75,11 @@ class MineInfoActivity : PermissionActivity(), HasAndroidInjector {
         sexDataList = listOf("男", "女")
         roleDataList = listOf("学生党", "上班族", "自由职业")
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        getData()
     }
 
     private fun getData() {
@@ -120,7 +124,10 @@ class MineInfoActivity : PermissionActivity(), HasAndroidInjector {
             Log.d(TAG, it.toString())
             mBinding!!.imgSrc = it.usersImg
         }
-        viewModel.updateHeadImgResult.observe(this){
+        viewModel.updateHeadImgResult.observe(this) {
+
+        }
+        viewModel.updateInfoResult.observe(this) {
 
         }
     }
@@ -159,6 +166,10 @@ class MineInfoActivity : PermissionActivity(), HasAndroidInjector {
                     viewModel.insertUserInfo(MainActivity.USER_ACCOUNT_BEAN!!.usersAccountId) {
                         finish()
                     }
+                } else if (MainActivity.USER_ACCOUNT_BEAN!!.usersId != null && checkUpdate()) {
+                    viewModel.updateUserInfo(MainActivity.USER_ACCOUNT_BEAN!!.usersAccountId) {
+                        finish()
+                    }
                 }
             } else {
                 ToastUtil.makeToast("当前网络未连接！")
@@ -168,7 +179,11 @@ class MineInfoActivity : PermissionActivity(), HasAndroidInjector {
             if (isConnectedNetwork()) {
                 if (MainActivity.USER_ACCOUNT_BEAN!!.usersId == null && checkInsert()) {
                     viewModel.insertUserInfo(MainActivity.USER_ACCOUNT_BEAN!!.usersAccountId) {
-                        finish()
+                        MineInfoSelfCognitionActivity.actionStart(this)
+                    }
+                } else if (MainActivity.USER_ACCOUNT_BEAN!!.usersId != null && checkUpdate()) {
+                    viewModel.updateUserInfo(MainActivity.USER_ACCOUNT_BEAN!!.usersAccountId) {
+                        MineInfoSelfCognitionActivity.actionStart(this)
                     }
                 }
             } else {
@@ -187,6 +202,46 @@ class MineInfoActivity : PermissionActivity(), HasAndroidInjector {
         mBinding!!.activityMineRoleSelectLayout.setOnClickListener {
             MineInfoSingleDataDialogUtil().init(this, roleDataList, roleSelectCallback)
         }
+    }
+
+    private fun checkUpdate(): Boolean {
+        val name = mBinding!!.activityMineNameEditText.text.toString()
+        val sex = mBinding!!.activityMineSexSelectTextView.text.toString()
+        val birthday = mBinding!!.activityMineBirthdaySelectTextView.text.toString()
+        val role = mBinding!!.activityMineRoleSelectTextView.text.toString()
+        val phoneNum = mBinding!!.activityMinePhoneNumTextView.text.toString()
+        val weChat = mBinding!!.activityMineWechatEditText.text.toString()
+        val qq = mBinding!!.activityMineQqEditText.text.toString()
+        if (name.isEmpty()) {
+            ToastUtil.makeToast("请输入姓名！")
+            return false
+        }
+        if (sex.isEmpty() || sex == "请选择") {
+            ToastUtil.makeToast("请选择性别！")
+            return false
+        }
+        if (birthday.isEmpty() || birthday == "请选择") {
+            ToastUtil.makeToast("请选择生日！")
+            return false
+        }
+        if (role.isEmpty() || role == "请选择") {
+            ToastUtil.makeToast("请输入职业！")
+            return false
+        }
+        if (phoneNum.isEmpty()) {
+            ToastUtil.makeToast("请输入电话！")
+            return false
+        }
+        PersonInfo1Bean.apply {
+            usersName.value = name
+            usersSex.value = sex
+            usersBirthday.value = birthday
+            usersRole.value = role
+            usersPhoneNum.value = phoneNum
+            usersWechat.value = weChat
+            usersQq.value = qq
+        }
+        return true
     }
 
     private fun checkInsert(): Boolean {

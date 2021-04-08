@@ -1,9 +1,11 @@
 package com.example.mydesign.publicclass
 
+import android.util.Log
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 
 object TabPagerBinding {
+    private val TAG = "TabPagerBinding"
 
     fun bindTabPager(
         tabLayout: TabLayout,
@@ -13,6 +15,7 @@ object TabPagerBinding {
     ) {
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
+                Log.d(TAG, "tabIndex:${tab?.position}")
                 if (tabCallBack == null) {
                     viewPager2.currentItem = tab?.position ?: 0
                 } else {
@@ -26,6 +29,7 @@ object TabPagerBinding {
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
+                Log.d(TAG,"viewpagerIndex:$position")
                 if (pagerCallBack == null) {
                     tabLayout.getTabAt(position)?.select()
                 } else {

@@ -1,4 +1,4 @@
-package com.example.mydesign.data.bean
+package com.example.mydesign.data.bean.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 
 @Entity(tableName = "user_account_bean")
 @JsonClass(generateAdapter = true)
-data class UserAccountBean(
+data class UserAccountEntity(
     @Json(name = "usersAccountAccount")
     val usersAccountAccount: String,
     @PrimaryKey
