@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.mydesign.data.bean.MineInfoResponseBean
 import com.example.mydesign.data.bean.MyResponse
 import com.example.mydesign.data.bean.PositionResponseBean
+import com.example.mydesign.data.bean.entity.RecordsEntity
 import com.example.mydesign.data.bean.entity.UserAccountEntity
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -74,5 +75,15 @@ interface API {
         @Query("positionId") positionId: Int
     ): LiveData<ApiResponse<MyResponse<PositionResponseBean>>>
 
+
+    @POST("user/signUp")
+    fun signUp(
+        @Query("userAccountId") userAccountId: Int,
+        @Query("jobId") jobId: Int,
+        @Query("employerAccountId") employerAccountId: Int
+    ): LiveData<ApiResponse<MyResponse<RecordsEntity>>>
+
+    @GET("user/get/all/records")
+    fun getAllRecords(@Query("userAccountId") userAccountId: Int): LiveData<ApiResponse<MyResponse<List<RecordsEntity>>>>
 
 }

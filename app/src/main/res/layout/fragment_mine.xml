@@ -12,6 +12,22 @@
         <variable
             name="name"
             type="String" />
+
+        <variable
+            name="allCount"
+            type="String" />
+
+        <variable
+            name="signUpCount"
+            type="String" />
+
+        <variable
+            name="admissionCount"
+            type="String" />
+
+        <variable
+            name="finishCount"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,7 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="0"
+                    android:text="@{allCount,default=0}"
                     android:textSize="28sp"
                     android:textStyle="bold" />
 
@@ -122,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="0"
+                    android:text="@{signUpCount,default=0}"
                     android:textSize="28sp"
                     android:textStyle="bold" />
 
@@ -148,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="0"
+                    android:text="@{admissionCount,default=0}"
                     android:textSize="28sp"
                     android:textStyle="bold" />
 
@@ -174,7 +190,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="0"
+                    android:text="@{finishCount,default=0}"
                     android:textSize="28sp"
                     android:textStyle="bold" />
 
@@ -298,43 +314,43 @@
             app:layout_constraintTop_toBottomOf="@+id/fragment_mine_center_view">
 
             <!--        切换至招聘者-->
-<!--            <FrameLayout-->
-<!--                android:id="@+id/fragment_mine_change_to_employer_layout"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:paddingStart="16dp"-->
-<!--                android:paddingLeft="16dp"-->
-<!--                android:paddingEnd="8dp"-->
-<!--                android:paddingRight="8dp">-->
+            <!--            <FrameLayout-->
+            <!--                android:id="@+id/fragment_mine_change_to_employer_layout"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:paddingStart="16dp"-->
+            <!--                android:paddingLeft="16dp"-->
+            <!--                android:paddingEnd="8dp"-->
+            <!--                android:paddingRight="8dp">-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="match_parent">-->
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="match_parent">-->
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="20dp"-->
-<!--                        android:layout_height="20dp"-->
-<!--                        android:layout_gravity="center_vertical|start"-->
-<!--                        android:src="@drawable/ic_exchange" />-->
+            <!--                    <ImageView-->
+            <!--                        android:layout_width="20dp"-->
+            <!--                        android:layout_height="20dp"-->
+            <!--                        android:layout_gravity="center_vertical|start"-->
+            <!--                        android:src="@drawable/ic_exchange" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center_vertical"-->
-<!--                        android:layout_marginStart="8dp"-->
-<!--                        android:layout_marginLeft="8dp"-->
-<!--                        android:text="切换至招聘者"-->
-<!--                        android:textSize="16sp" />-->
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="center_vertical"-->
+            <!--                        android:layout_marginStart="8dp"-->
+            <!--                        android:layout_marginLeft="8dp"-->
+            <!--                        android:text="切换至招聘者"-->
+            <!--                        android:textSize="16sp" />-->
 
-<!--                </LinearLayout>-->
+            <!--                </LinearLayout>-->
 
-<!--                <ImageView-->
-<!--                    android:layout_width="25dp"-->
-<!--                    android:layout_height="25dp"-->
-<!--                    android:layout_gravity="center_vertical|end"-->
-<!--                    android:src="@drawable/ic_enter" />-->
+            <!--                <ImageView-->
+            <!--                    android:layout_width="25dp"-->
+            <!--                    android:layout_height="25dp"-->
+            <!--                    android:layout_gravity="center_vertical|end"-->
+            <!--                    android:src="@drawable/ic_enter" />-->
 
-<!--            </FrameLayout>-->
+            <!--            </FrameLayout>-->
 
             <View
                 android:layout_width="match_parent"

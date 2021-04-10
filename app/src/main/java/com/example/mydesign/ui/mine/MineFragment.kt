@@ -17,6 +17,7 @@ import com.example.mydesign.base.BaseFragment
 import com.example.mydesign.data.bean.PersonInfo1Bean
 import com.example.mydesign.databinding.FragmentMineBinding
 import com.example.mydesign.ext.isConnectedNetwork
+import com.example.mydesign.ui.main.MainActivity
 import com.example.mydesign.utils.ToastUtil
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
@@ -71,12 +72,18 @@ class MineFragment : Fragment() {
 
     fun init() {
         observeData()
-        getData()
+//        getData()
         setListener()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getData()
     }
 
     private fun getData() {
         viewModel.getInfo()
+        viewModel.getAllRecords(MainActivity.USER_ACCOUNT_BEAN!!.usersAccountId)
         if (!requireContext().isConnectedNetwork()) {
             ToastUtil.makeToast("当前网络未连接！")
         }
@@ -86,8 +93,23 @@ class MineFragment : Fragment() {
         viewModel.getUserInfoResult.observe(requireActivity()) {
             mBinding!!.imgSrc = it.usersImg
         }
-        PersonInfo1Bean.usersName.observe(this) {
+        PersonInfo1Bean.usersName.observe(requireActivity()) {
             mBinding!!.name = it
+        }
+        viewModel.getAllRecordsResult.observe(requireActivity()) {
+
+        }
+        viewModel.allCount.observe(requireActivity()) {
+            mBinding!!.allCount = it.toString()
+        }
+        viewModel.signUpCount.observe(requireActivity()) {
+            mBinding!!.signUpCount = it.toString()
+        }
+        viewModel.admissionCount.observe(requireActivity()) {
+            mBinding!!.admissionCount = it.toString()
+        }
+        viewModel.finishCount.observe(requireActivity()) {
+            mBinding!!.finishCount = it.toString()
         }
     }
 

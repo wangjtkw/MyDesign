@@ -15,7 +15,7 @@ object TabPagerBinding {
     ) {
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                Log.d(TAG, "tabIndex:${tab?.position}")
+//                Log.d(TAG, "tabIndex:${tab?.position}")
                 if (tabCallBack == null) {
                     viewPager2.currentItem = tab?.position ?: 0
                 } else {
@@ -29,7 +29,7 @@ object TabPagerBinding {
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                Log.d(TAG,"viewpagerIndex:$position")
+//                Log.d(TAG,"viewpagerIndex:$position")
                 if (pagerCallBack == null) {
                     tabLayout.getTabAt(position)?.select()
                 } else {

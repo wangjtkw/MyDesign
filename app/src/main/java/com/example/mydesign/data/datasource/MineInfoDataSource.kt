@@ -12,6 +12,7 @@ import com.example.mydesign.ext.isConnectedNetwork
 import com.example.mydesign.utils.AppHelper
 import com.example.mydesign.utils.ToastUtil
 import com.example.mydesign.data.bean.Resource
+import com.example.mydesign.data.bean.entity.RecordsEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -97,6 +98,37 @@ class MineInfoDataSource @Inject constructor(
         param: HashMap<String, RequestBody>,
     ): LiveData<ApiResponse<MyResponse<Any>>> {
         return api.updateUserInfoHead(headImg, param)
+    }
+
+    fun getAllRecords(
+        scope: CoroutineScope,
+        usersAccountId: Int
+    ): LiveData<Resource<List<RecordsEntity>>> {
+        return object :
+            ScopeDataSource<MyResponse<List<RecordsEntity>>, List<RecordsEntity>>(scope) {
+            override suspend fun loadData(): LiveData<ApiResponse<MyResponse<List<RecordsEntity>>>> {
+                return api.getAllRecords(usersAccountId)
+            }
+
+            override fun loadFromDb(): LiveData<List<RecordsEntity>> {
+                return db.recordsDao().selectByUserAccountId(usersAccountId)
+            }
+
+            override fun shouldFetch(data: List<RecordsEntity>?): Boolean {
+                return AppHelper.mContext.isConnectedNetwork()
+            }
+
+            override suspend fun saveCallResult(item: MyResponse<List<RecordsEntity>>) {
+                if (item.code == 200 && !item.data.isNullOrEmpty()) {
+                    db.recordsDao().insertRecordsEntity(item.data)
+                } else {
+                    scope.launch(Dispatchers.Main) {
+                        ToastUtil.makeToast("出现异常：${item.description}")
+                    }
+                }
+            }
+
+        }.asLiveData()
     }
 
 }
