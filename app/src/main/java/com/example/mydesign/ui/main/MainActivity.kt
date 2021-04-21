@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.mydesign.MessageFragment
 import com.example.mydesign.R
 import com.example.mydesign.data.bean.entity.UserAccountEntity
+import com.example.mydesign.netty.NettyService
 import com.example.mydesign.ui.home.HomeFragment
 import com.example.mydesign.ui.mine.MineFragment
 import com.example.mydesign.publicclass.TabPagerBinding
@@ -40,8 +41,13 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
         StatusBarUtils.setLightBar(this, Color.TRANSPARENT)
         setContentView(R.layout.activity_main)
         init()
+        startService()
     }
 
+    private fun startService(){
+        val intent = Intent(this,NettyService::class.java)
+        startService(intent)
+    }
 
     private fun init() {
         mainTabLayout = f(R.id.main_tab_layout)

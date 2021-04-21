@@ -19,10 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
-        <activity android:name=".ui.positiondetail.PositionDetailActivity">
+        <service
+            android:name=".netty.NettyService"
+            android:enabled="true"
+            android:exported="true"></service>
 
-
-        </activity>
+        <activity android:name=".ui.positiondetail.PositionDetailActivity"></activity>
         <activity android:name=".ui.curriculumvitae.InternshipExperienceFillActivity" />
         <activity android:name=".ui.curriculumvitae.InternshipExperienceShowActivity" />
         <activity android:name=".ui.curriculumvitae.SchoolExperienceShowActivity" />
